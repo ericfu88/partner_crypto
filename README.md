@@ -1,13 +1,11 @@
 # Xealth Crypto Library
 
-This is the crypto library used to secure and authenticate communication between Xealth and partners. 
-
-When partners pushes messages to Xealth: 
+This is the crypto library used to secure and authenticate communication between partners.
 
 * Step 1. Generate a random AES key.
 * Step 2. AES encrypt the body of the message.
-* Step 3. Sign the AES key using Receiver(Xealth)’s public RSA key.
-* Step 4. Generate a SHA-1 hash over the signed AES key and the AES encrypted body 
+* Step 3. Sign the AES key using Receiver’s public RSA key.
+* Step 4. Generate a SHA-1 hash over the signed AES key and the AES encrypted body
 * Step 5. Sign the SHA-1 hash using Sender(partner)’s private RSA key.
 * Step 6. Sends the message body by joining the following:
   * Signed SHA-1 hash
@@ -16,7 +14,7 @@ When partners pushes messages to Xealth:
 
 # How to use
 
-* Generate a pair of RSA keys: 
+* Generate a pair of RSA keys:
 
 ```
 cd python
@@ -32,11 +30,10 @@ python encrypt.py
 ```
 This generates a file called `samplkeKeys/encrypted.b64`.
 
-* Decrypt the message: 
+* Decrypt the message:
 
 ```
 cd node
 npm install
 node decrypt.js
 ```
- 
